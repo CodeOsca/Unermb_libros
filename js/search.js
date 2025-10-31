@@ -1,23 +1,5 @@
-
-const book = [
-    {
-        nameB:'Libro oscuro de la persuasión',
-        Author:'Alejandro Yantada',
-        location:'Estante A-3',
-    },
-
-    {
-        nameB:'48 leyes del poder',
-        Author:'Robert Greene',
-        location:'Estante A-3',
-    },
-
-    {
-        nameB:'Camino a la ruina, el plan secreto de la elite para el proxima crisis mundial',
-        Author:'James Rickards',
-        location:'Estante B-1',
-    },
-]
+import { Card } from "./card.js";
+import { book } from "./database.js";
 
 
 class SearchBook {
@@ -95,7 +77,7 @@ const searchBook = new SearchBook()
 
 document.addEventListener("click", handleClick);
 
-document.getElementById("searchForm").addEventListener("submit", function (e) {
+document.getElementById("searchForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const category = document.querySelector(".option.selected")?.getAttribute("data-category");
@@ -112,25 +94,26 @@ document.getElementById("searchForm").addEventListener("submit", function (e) {
     }
 
     searchBook.books = []
-    searchBook.searchBooks(category, wordSearch);
-    const results = searchBook.getBooks();
+    await searchBook.searchBooks(category, wordSearch);
+    const results = await searchBook.getBooks();
     const container = document.getElementById("container");
+    
     container.innerHTML = '';
+    results.length === 0 ? container.innerHTML = `<p>No se han encontrado libros con ese termino</p>` : '';
+    
     results.forEach( book => {
         const bookElement = document.createElement('div');
         bookElement.className = 'accordion active';
-        bookElement.innerHTML = `
-        <div class="item">
-            <div class="header">
-                <span>${book.nameB} </span>
-                <span class="arrow">▶</span>
-            </div>
-            <div class="content">
-                <p>🛍️ Ubicación: ${book.location} </p>
-                <p>👤 Autor: ${book.Author} </p>
-            </div>
-        </div>`;
+        bookElement.innerHTML = Card(book);
         container.appendChild(bookElement);
     })
     
 });
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('✅ Service Worker registrado:', reg.scope))
+        .catch(err => console.error('❌ Error al registrar el Service Worker:', err));
+    });
+}
