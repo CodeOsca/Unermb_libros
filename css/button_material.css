@@ -1,0 +1,24 @@
+/* MATERIAL BUTTON --- MATERIAL DESIGN */
+.material-button {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.material-button:hover {
+    background-color: #3700b3;
+}
+
+.material-button.delete {
+    background-color: #e53935; /* rojo intenso */
+    color: white;
+}
+
+.material-button.delete:hover {
+    background-color: #b71c1c; /* rojo más oscuro al pasar el mouse */
+}

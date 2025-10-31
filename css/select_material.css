@@ -1,0 +1,95 @@
+
+/* SIMULACIÓN DE SELECT DE MATERIAL DESIGN */
+
+.material-select {
+    position: relative;
+    margin: 1rem 0.60rem;
+    max-width: 100%;
+}
+
+.select-box {
+    position: relative;
+    padding: 20px 12px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.select-box.active {
+    border-color: #3f51b5;
+    box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2);
+}
+
+.select-label {
+    position: absolute;
+    left: 12px;
+    top: 54%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #757575;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    background: #fff;
+    padding: 0 4px;
+    text-align: left;
+}
+
+.select-box.filled + .select-label,
+.select-box.active + .select-label {
+    top: 6px;
+    font-size: 12px;
+    color: #3f51b5;
+    transform: none;
+}
+
+.selected-value {
+    font-size: 16px;
+    color: #333;
+}
+
+.options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    z-index: 10;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.options.show {
+    display: block;
+}
+
+.option {
+    cursor: pointer;
+    padding: 12px;
+    transition: background 0.2s;
+}
+
+.option:hover {
+    background: #e3f2fd;
+}
+
+.option.selected {
+    background: #c5cae9;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from {
+    opacity: 0;
+    transform: translateY(-5px);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0);
+    }
+}

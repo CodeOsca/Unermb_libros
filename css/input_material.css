@@ -1,0 +1,88 @@
+
+/* INPUT CSS A STYLE MATERIAL DESIGN */
+
+.md-input {
+    position: relative;
+    margin: 1rem 0.60rem;
+    max-width: 100%;
+}
+
+.md-input input {
+    width: 100%;
+    border: 2px solid #c4c4c4;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 16px;
+    padding: 20px 12px 8px 12px;
+    outline: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.3s;
+}
+
+input.input-disabled-bg {
+    background-color: var(--bg-gray);
+    cursor: not-allowed;
+}
+
+.md-input label {
+    position: absolute;
+    left: 12px;
+    top: 20px;
+    color: #757575;
+    font-size: 16px;
+    pointer-events: none;
+    background: #fff;
+    padding: 0 4px;
+    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1) all;
+}
+
+.md-input input:focus {
+    border-bottom: 2px solid #4285f4;
+}
+
+.md-input input:focus + label,
+.md-input input:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 8px;
+    font-size: 14px;
+    color: #4285f4;
+    background: #fff;
+    padding: 0 4px;
+}
+
+.md-input input:focus + label {
+    color: #4285f4;
+}
+.md-input .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #4285f4;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.md-input input:focus ~ .underline {
+    transform: scaleX(1);
+}
+.md-input .helper-text {
+    font-size: 12px;
+    color: #757575;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+
+.w-full {
+    width: 100%;
+}
+
+input.input-disabled-bg {
+    background-color: var(--bg-gray);
+    cursor: not-allowed;
+}
+
+.disabled-btn {
+    background-color: var(--electron-color-mid);
+}

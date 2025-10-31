@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>--.Busca tu libro.--</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+
+    <form style="padding-top: 20px; padding-bottom: 10px;" id="searchForm">
+        <div class="md-input">
+            <input type="text" id="searchInput" placeholder="Buscar libro">
+            <label for="searchInput">Buscar libro</label>
+            <span class="underline"></span>
+        </div>
+
+        <div class="material-select" id="materialSelect">
+            <div class="select-box">
+                <div class="selected-value">búsqueda por</div>
+            </div>
+            <span class="select-label">búsqueda por:</span>
+            <div class="options">
+                <div class="option" data-category="name">Nombre</div>
+                <div class="option" data-category="author">Autor</div>
+            </div>
+        </div>
+
+        <div style="margin-left: 0.65rem;">
+            <button class="material-button" type="submit">Buscar</button>
+        </div>
+    </form>
+
+    <main id="container">
+
+    </main>
+
+
+    <script src="./js/flashy.js"></script>
+    <script src="./js/search.js"></script>
+</body>
+</html>
