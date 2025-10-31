@@ -1,5 +1,7 @@
-import { Card } from "./card.js";
-import { book } from "./database.js";
+
+
+import { book } from './database.js';
+import { Card } from './card.js';
 
 
 class SearchBook {
@@ -77,7 +79,7 @@ const searchBook = new SearchBook()
 
 document.addEventListener("click", handleClick);
 
-document.getElementById("searchForm").addEventListener("submit", async function (e) {
+document.getElementById("searchForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
     const category = document.querySelector(".option.selected")?.getAttribute("data-category");
@@ -94,12 +96,16 @@ document.getElementById("searchForm").addEventListener("submit", async function 
     }
 
     searchBook.books = []
-    await searchBook.searchBooks(category, wordSearch);
-    const results = await searchBook.getBooks();
+    searchBook.searchBooks(category, wordSearch);
+    const results = searchBook.getBooks();
     const container = document.getElementById("container");
-    
     container.innerHTML = '';
-    results.length === 0 ? container.innerHTML = `<p>No se han encontrado libros con ese termino</p>` : '';
+    console.log(results);
+    
+    if(results.length === 0) {
+        container.innerHTML = `<p>No se ha obtenido ningún resultado</p>`;
+        return;
+    }
     
     results.forEach( book => {
         const bookElement = document.createElement('div');
