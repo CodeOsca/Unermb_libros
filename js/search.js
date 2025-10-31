@@ -100,7 +100,6 @@ document.getElementById("searchForm").addEventListener("submit", function (e) {
     const results = searchBook.getBooks();
     const container = document.getElementById("container");
     container.innerHTML = '';
-    console.log(results);
     
     if(results.length === 0) {
         container.innerHTML = `<p>No se ha obtenido ningún resultado</p>`;
