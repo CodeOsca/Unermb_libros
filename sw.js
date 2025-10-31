@@ -4,14 +4,14 @@ self.addEventListener('install', event => {
         caches.open('mi-cache').then(cache => {
         return cache.addAll([
             '/',
-            '/index.html',
-            '/css/accordion.css',
-            '/css/button_material.css',
-            '/css/index.css',
-            '/css/input_material.css',
-            '/css/page.css',
-            '/js/flashy.js',
-            '/js/search.js'
+            './index.html',
+            './css/accordion.css',
+            './css/button_material.css',
+            './css/index.css',
+            './css/input_material.css',
+            './css/page.css',
+            './js/flashy.js',
+            './js/search.js'
         ]);
         })
     );
