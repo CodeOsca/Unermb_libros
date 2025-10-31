@@ -3,7 +3,6 @@ self.addEventListener('install', event => {
     event.waitUntil(
         caches.open('mi-cache').then(cache => {
         return cache.addAll([
-            '/',
             './index.html',
             './css/accordion.css',
             './css/button_material.css',
